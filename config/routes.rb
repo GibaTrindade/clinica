@@ -2,12 +2,18 @@ Clinica::Application.routes.draw do
   #resources :pacientes
   resources :diagnosticos
   resources :exames
+  resources :anamneses
+  
   resources :pacientes do
     resources :diagnosticos, :only => [:create, :index, :new]
 
   end
   resources :pacientes do
     resources :exames, :only => [:create, :index, :new]
+
+  end
+  resources :pacientes do
+    resources :anamneses, :only => [:create, :index, :new]
 
   end
 

@@ -1,2 +1,2 @@
-module ExameHelper
+module ExamesHelper
 end

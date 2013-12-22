@@ -1,6 +1,7 @@
 class Paciente < ActiveRecord::Base
   has_many :diagnosticos
   has_many :exames
+  has_many :anamneses
   
   EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
     validates_presence_of :nome, :cpf, :sexo

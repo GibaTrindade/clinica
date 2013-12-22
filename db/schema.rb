@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222042024) do
+ActiveRecord::Schema.define(version: 20131222052026) do
+
+  create_table "anamneses", force: true do |t|
+    t.text     "queixa"
+    t.integer  "paciente_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "anamneses", ["paciente_id"], name: "index_anamneses_on_paciente_id", using: :btree
 
   create_table "diagnosticos", force: true do |t|
     t.string   "nome"

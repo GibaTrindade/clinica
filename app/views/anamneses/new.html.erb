@@ -1,0 +1,10 @@
+<h1>Nova Queixa</h1>
+
+<%= form_for [@paciente,@anamnese] do |f| %> <p>
+<%= f.label 'Anamnese' %> <br />
+<%= f.text_area :queixa %> </p>
+
+<p>
+<%= f.submit %> 
+</p>
+<% end %>
