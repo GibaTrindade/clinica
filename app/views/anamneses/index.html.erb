@@ -1,0 +1,5 @@
+<h1>Queixas de <%= @paciente.nome %></h1>
+<ul>
+<% @anamneses.each do |a| %>
+<li><%= link_to "Ver Queixas - #{a.created_at}", a %> </li>
+<% end %> </ul>
