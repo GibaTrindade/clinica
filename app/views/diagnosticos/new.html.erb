@@ -1,0 +1,15 @@
+<h1>Novo Diagnóstico</h1>
+
+<%= form_for [@paciente,@diagnostico] do |f| %> <p>
+<%= f.label 'Diagnóstico' %> <br />
+<%= f.text_field :nome %> </p>
+<p>
+<%= f.label 'CID' %> <br />
+<%= f.text_field :cid %>
+</p> <p>
+<%= f.label 'Estado do Diagnóstico' %> <br />
+<%= f.check_box :estado %> </p>
+<p>
+<%= f.submit %> 
+</p>
+<% end %>

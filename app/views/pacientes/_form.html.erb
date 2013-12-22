@@ -1,0 +1,57 @@
+<%= form_for(@paciente) do |f| %>
+  <% if @paciente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+
+      <ul>
+      <% @paciente.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br>
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :idade %><br>
+    <%= f.number_field :idade %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo %><br>
+    <%= f.text_field :sexo %>
+  </div>
+  <div class="field">
+    <%= f.label :telf %><br>
+    <%= f.text_field :telf %>
+  </div>
+  <div class="field">
+    <%= f.label :telc %><br>
+    <%= f.text_field :telc %>
+  </div>
+  <div class="field">
+    <%= f.label :convenio %><br>
+    <%= f.text_field :convenio %>
+  </div>
+  <div class="field">
+    <%= f.label :ativo %><br>
+    <%= f.check_box :ativo %>
+  </div>
+  <div class="field">
+    <%= f.label :estadocivil %><br>
+    <%= f.text_field :estadocivil %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

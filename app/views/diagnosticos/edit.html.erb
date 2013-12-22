@@ -1,0 +1,13 @@
+<h1>Editar diagnóstico</h1>
+<%= form_for @diagnostico do |f| %> <p>
+<%= f.label 'Diagnóstico' %> <br />
+<%= f.text_field :nome %> </p>
+<p>
+<%= f.label 'CID'  %> <br />
+<%= f.text_field :cid %>
+</p> <p>
+<%= f.label 'Estado' %> <br />
+<%= f.check_box :estado %> </p>
+<p>
+<%= f.submit %> </p>
+<% end %>

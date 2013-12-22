@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @paciente.nome %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @paciente.cpf %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @paciente.email %>
+</p>
+
+<p>
+  <strong>Idade:</strong>
+  <%= @paciente.idade %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @paciente.sexo %>
+</p>
+
+<p>
+  <strong>Telf:</strong>
+  <%= @paciente.telf %>
+</p>
+
+<p>
+  <strong>Telc:</strong>
+  <%= @paciente.telc %>
+</p>
+
+<p>
+  <strong>Convenio:</strong>
+  <%= @paciente.convenio %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @paciente.ativo %>
+</p>
+
+<p>
+  <strong>Estadocivil:</strong>
+  <%= @paciente.estadocivil %>
+</p>
+
+<%= link_to 'Edit', edit_paciente_path(@paciente) %> |
+<%= link_to 'Back', pacientes_path %>
+<%= link_to 'Novo Diagnóstico', new_paciente_diagnostico_path(@paciente) %>

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %> </p>
+<h2>Diagnóstico:  </h2>
+<ul>
+<li>Diagnóstico: <%= @diagnostico.nome %> </li>
+<li>CID: <%= @diagnostico.cid %> </li> 
+<li>Estado: <%= @diagnostico.estado %> </li>
+</ul>
+<p><%= link_to 'Editar Diagnóstico', edit_diagnostico_path(@diagnostico) %></p>
+<p><%= link_to 'Voltar', root_path %></p></p>
