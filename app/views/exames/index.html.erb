@@ -1,0 +1,5 @@
+<h1>Exames de <%= @paciente.nome %></h1>
+<ul>
+<% @exames.each do |exame| %>
+<li><%= link_to "Ver Exame - #{exame.nome} - #{exame.created_at}", exame %> </li>
+<% end %> </ul>
