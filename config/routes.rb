@@ -1,11 +1,15 @@
 Clinica::Application.routes.draw do
   #resources :pacientes
   resources :diagnosticos
+  resources :exames
   resources :pacientes do
     resources :diagnosticos, :only => [:create, :index, :new]
 
   end
-  
+  resources :pacientes do
+    resources :exames, :only => [:create, :index, :new]
+
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

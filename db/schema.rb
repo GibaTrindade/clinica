@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131221032427) do
+ActiveRecord::Schema.define(version: 20131222042024) do
 
   create_table "diagnosticos", force: true do |t|
     t.string   "nome"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20131221032427) do
   end
 
   add_index "diagnosticos", ["paciente_id"], name: "index_diagnosticos_on_paciente_id", using: :btree
+
+  create_table "exames", force: true do |t|
+    t.string   "nome"
+    t.float    "resultado"
+    t.string   "unidade"
+    t.integer  "paciente_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exames", ["paciente_id"], name: "index_exames_on_paciente_id", using: :btree
 
   create_table "pacientes", force: true do |t|
     t.string   "nome"

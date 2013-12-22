@@ -1,0 +1,15 @@
+<h1>Novo Exame</h1>
+
+<%= form_for [@paciente,@exame] do |f| %> <p>
+<%= f.label 'Exame' %> <br />
+<%= f.text_field :nome %> </p>
+<p>
+<%= f.label 'Resultado' %> <br />
+<%= f.text_field :resultado %>
+</p> <p>
+<%= f.label 'Unidade' %> <br />
+<%= f.text_field :unidade %> </p>
+<p>
+<%= f.submit %> 
+</p>
+<% end %>
