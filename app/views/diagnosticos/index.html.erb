@@ -1,0 +1,5 @@
+<h1>Diagnósticos de <%= @paciente.nome %></h1>
+<ul>
+<% @diagnosticos.each do |diagnostico| %>
+<li><%= link_to "Ver Diagnóstico - #{diagnostico.nome} - #{diagnostico.created_at}", diagnostico %> </li>
+<% end %> </ul>

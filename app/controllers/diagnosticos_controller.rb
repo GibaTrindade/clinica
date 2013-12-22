@@ -1,5 +1,10 @@
 class DiagnosticosController < ApplicationController
   
+  def index
+    @paciente = Paciente.find(params[:paciente_id])
+    @diagnosticos = @paciente.diagnosticos
+  end
+  
   def show
       @diagnostico = Diagnostico.find(params[:id])
     end
