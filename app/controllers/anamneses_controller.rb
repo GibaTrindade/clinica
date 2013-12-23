@@ -1,5 +1,10 @@
 class AnamnesesController < ApplicationController
   
+  def index
+    @paciente = Paciente.find(params[:paciente_id])
+    @anamneses = @paciente.anamneses
+  end
+  
   def show
       @anamnese = Anamnese.find(params[:id])
     end

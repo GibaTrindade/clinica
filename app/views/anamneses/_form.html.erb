@@ -1,0 +1,8 @@
+<%= form_for [@paciente,@anamnese] do |f| %> <p>
+<%= f.label 'Anamnese' %> <br />
+<%= f.text_area :queixa, size: "100x20" %> </p>
+
+<p>
+<%= f.submit %> 
+</p>
+<% end %>

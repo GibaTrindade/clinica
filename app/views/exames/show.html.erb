@@ -1,0 +1,7 @@
+<h1>Exame:  </h1>
+<ul>
+<li>Exame: <%= @exame.nome %> </li>
+<li>Resultado: <%= @exame.resultado %> <%= @exame.unidade %> </li>
+</ul>
+<p><%= link_to 'Editar Exame', edit_exame_path(@exame) %></p>
+<p><%= link_to 'Voltar', root_path %></p></p>

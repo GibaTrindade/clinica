@@ -1,7 +1,7 @@
 <%= form_for(@paciente) do |f| %>
   <% if @paciente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+      <h2><%= pluralize(@paciente.errors.count, "erro") %> não deixaram este paciente ser salvo:</h2>
 
       <ul>
       <% @paciente.errors.full_messages.each do |msg| %>
