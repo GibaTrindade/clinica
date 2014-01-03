@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222052026) do
+ActiveRecord::Schema.define(version: 20131231213851) do
 
   create_table "anamneses", force: true do |t|
     t.text     "queixa"
     t.integer  "paciente_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "anamneses", ["paciente_id"], name: "index_anamneses_on_paciente_id", using: :btree
+  add_index "anamneses", ["user_id"], name: "index_anamneses_on_user_id", using: :btree
 
   create_table "diagnosticos", force: true do |t|
     t.string   "nome"
@@ -29,9 +31,11 @@ ActiveRecord::Schema.define(version: 20131222052026) do
     t.integer  "paciente_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "diagnosticos", ["paciente_id"], name: "index_diagnosticos_on_paciente_id", using: :btree
+  add_index "diagnosticos", ["user_id"], name: "index_diagnosticos_on_user_id", using: :btree
 
   create_table "exames", force: true do |t|
     t.string   "nome"
@@ -40,9 +44,11 @@ ActiveRecord::Schema.define(version: 20131222052026) do
     t.integer  "paciente_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "exames", ["paciente_id"], name: "index_exames_on_paciente_id", using: :btree
+  add_index "exames", ["user_id"], name: "index_exames_on_user_id", using: :btree
 
   create_table "pacientes", force: true do |t|
     t.string   "nome"
@@ -57,6 +63,20 @@ ActiveRecord::Schema.define(version: 20131222052026) do
     t.string   "estadocivil"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "pacientes", ["user_id"], name: "index_pacientes_on_user_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "username",                        null: false
+    t.string   "email",              default: "", null: false
+    t.string   "encrypted_password", default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

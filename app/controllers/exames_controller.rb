@@ -1,5 +1,5 @@
 class ExamesController < ApplicationController
-  
+  before_filter :authenticate_user!
   def index
     @paciente = Paciente.find(params[:paciente_id])
     @exames = @paciente.exames
@@ -17,6 +17,7 @@ class ExamesController < ApplicationController
     @paciente = Paciente.find(params[:paciente_id])
       #@diagnostico = @paciente.diagnosticos.build(diag_params)
       @exame = @paciente.exames.create(exame_params)
+      @exame.user_id = current_user.id
       if @exame.save
         redirect_to @exame,
                     notice: 'Cadastro criado com sucesso!'
@@ -50,7 +51,7 @@ class ExamesController < ApplicationController
     def exame_params
       params.
         require(:exame).
-        permit(:nome, :resultado, :unidade)
+        permit(:nome, :resultado, :unidade, :user_id)
   end
     # in new action
   #@diagnostico = @paciente.bars.build

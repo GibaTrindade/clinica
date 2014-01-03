@@ -1,7 +1,9 @@
 class Paciente < ActiveRecord::Base
-  has_many :diagnosticos
-  has_many :exames
-  has_many :anamneses
+  #attr_accessible :nome
+  has_many :diagnosticos, dependent: :destroy
+  has_many :exames, dependent: :destroy
+  has_many :anamneses, dependent: :destroy
+  belongs_to :user
   
   
   EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
@@ -14,4 +16,11 @@ class Paciente < ActiveRecord::Base
     #validate do
     #    errors.add(:email, :invalid) unless email.match(EMAIL_REGEXP)
     #end
+    def self.search(search)
+        if search
+          where('nome LIKE ?', "%#{search}%")
+        else
+          scoped
+        end
+      end
 end

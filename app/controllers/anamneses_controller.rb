@@ -1,5 +1,5 @@
 class AnamnesesController < ApplicationController
-  
+  before_filter :authenticate_user!
   def index
     @paciente = Paciente.find(params[:paciente_id])
     @anamneses = @paciente.anamneses
@@ -17,6 +17,7 @@ class AnamnesesController < ApplicationController
     @paciente = Paciente.find(params[:paciente_id])
       #@diagnostico = @paciente.diagnosticos.build(diag_params)
       @anamnese = @paciente.anamneses.create(anam_params)
+      @anamnese.user_id = current_user.id
       if @anamnese.save
         redirect_to @anamnese,
                     notice: 'Cadastro criado com sucesso!'
@@ -50,7 +51,7 @@ class AnamnesesController < ApplicationController
     def anam_params
       params.
         require(:anamnese).
-        permit(:queixa)
+        permit(:queixa, :user_id)
   end
     # in new action
   #@diagnostico = @paciente.bars.build

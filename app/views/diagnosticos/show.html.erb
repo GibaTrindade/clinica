@@ -4,5 +4,7 @@
 <li>CID: <%= @diagnostico.cid %> </li> 
 <li>Estado: <%= @diagnostico.estado %> </li>
 </ul>
-<p><%= link_to 'Editar Diagnóstico', edit_diagnostico_path(@diagnostico) %></p>
+<% if @diagnostico.user_id == current_user.id %>
+	<p><%= link_to 'Editar Diagnóstico', edit_diagnostico_path(@diagnostico) %></p>
+<% end %>
 <p><%= link_to 'Voltar', root_path %></p></p>

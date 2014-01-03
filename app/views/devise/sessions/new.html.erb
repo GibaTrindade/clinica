@@ -1,17 +1,33 @@
-<h2>Sign in</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<h2>Entrar</h2>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {role: "form", class: "form-horizontal"}) do |f| %>
+ 
+<center>
+  <div class="form-group">
+	  <%= label_tag 'username_text', :username, class: "col-sm-2 control-label" %>
+  		<div class="col-sm-10">
+  	  <%= f.email_field :username, :autofocus => true, class: "form-control", id: "username_text" %>
+  		</div>
+</div></br></br>
+  
+  <div class="form-group">
+	  <%= label_tag 'password_text', :password, class: "col-sm-2 control-label" %>
+	  	<div class="col-sm-10">
+  		<%= f.password_field :password, class: "form-control", id: "password_text" %>
+	</div>
+</div></br></br>
 
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
+	
+  <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+  <%= f.submit "Entrar!", :class => "btn btn-large btn-primary" %>
+</div>
+</div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</center>

@@ -1,4 +1,5 @@
 Clinica::Application.routes.draw do
+  devise_for :users
   #resources :pacientes
   resources :diagnosticos
   resources :exames

@@ -1,10 +1,12 @@
 class PacientesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
 
   # GET /pacientes
   # GET /pacientes.json
   def index
-    @pacientes = Paciente.all
+    @pacientes = Paciente.search(params[:search]).order(created_at: :desc)
+    #@pacientes = Paciente.all.order(created_at: :desc)
   end
 
   # GET /pacientes/1
@@ -25,7 +27,7 @@ class PacientesController < ApplicationController
   # POST /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
-
+    @paciente.user_id = current_user.id
     respond_to do |format|
       if @paciente.save
         format.html { redirect_to @paciente, notice: 'Paciente was successfully created.' }
@@ -58,6 +60,7 @@ class PacientesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to pacientes_url }
       format.json { head :no_content }
+      format.js {head :ok}
     end
   end
 
@@ -69,6 +72,6 @@ class PacientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_params
-      params.require(:paciente).permit(:nome, :cpf, :email, :idade, :sexo, :telf, :telc, :convenio, :ativo, :estadocivil)
+      params.require(:paciente).permit(:nome, :cpf, :email, :idade, :sexo, :telf, :telc, :convenio, :ativo, :estadocivil, :user_id)
     end
 end

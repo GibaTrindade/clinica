@@ -1,6 +1,8 @@
 <h1>Queixa:  </h1>
 
 <p><%= @anamnese.queixa %> </p>
-
-<p><%= link_to 'Editar Queixa', edit_anamnese_path(@anamnese) %></p>
+<%= text_area :anamnese, :queixa, value: @anamnese.queixa, size: "100x20", disabled: "disabled" %> </p>
+<% if @anamnese.user_id == current_user.id %>
+	<p><%= link_to 'Editar Queixa', edit_anamnese_path(@anamnese) %></p>
+<% end %>
 <p><%= link_to 'Voltar', root_path %></p></p>

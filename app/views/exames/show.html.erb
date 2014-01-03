@@ -3,5 +3,7 @@
 <li>Exame: <%= @exame.nome %> </li>
 <li>Resultado: <%= @exame.resultado %> <%= @exame.unidade %> </li>
 </ul>
+<% if @exame.user_id == current_user.id %>
 <p><%= link_to 'Editar Exame', edit_exame_path(@exame) %></p>
+<% end %>
 <p><%= link_to 'Voltar', root_path %></p></p>
