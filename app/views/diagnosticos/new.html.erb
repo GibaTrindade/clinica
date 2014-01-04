@@ -6,9 +6,13 @@
 <p>
 <%= f.label 'CID' %> 
 <%= f.text_field :cid %>
-</p> <p>
-<%= f.label 'Estado do Diagnóstico' %> 
-<%= f.check_box :estado, checked: "checked", disabled: "disabled" %> </p>
+</p> 
+<div class="form-group">  
+    <%= f.label "Estado do diagnóstico" %>
+    	<%= f.check_box :estado_desativado, checked: "checked", disabled: "disabled", class: "form-control"  %>
+		<%= f.hidden_field :estado, value: true %>
+</div>
+
 <p>
 <%= f.submit %> 
 </p>

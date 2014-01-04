@@ -1,4 +1,12 @@
 pt-BR:
+ devise:
+  sessions:
+   user:
+    signed_in: Seja Bem Vindo
+  failure:
+   user:
+    unauthenticated: Faça o login para acessar
+ 
  pacientes:
   new:
    title: Cadastro de Pacientes
@@ -11,6 +19,8 @@ pt-BR:
    paciente: Novo Paciente
   criar:
    paciente: Criar Paciente
+  editar:
+   paciente: Atualizar Paciente
 
  activerecord:
   models:

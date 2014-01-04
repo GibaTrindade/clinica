@@ -1,60 +1,60 @@
-<p>
-  <h1><strong>Nome:</strong>
-  <%= @paciente.nome %></h1>
-</p>
-<ul>
+<h1>Página do Paciente</h1>
 
- <li> <strong>Cpf:</strong>
-  <%= @paciente.cpf %></li>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Paciente: <%= @paciente.nome %></strong></h3>
+  </div>
+  <div class="panel-body">
+	  <ul>
 
+	   <li> <strong>Cpf:</strong>
+	    <%= @paciente.cpf %></li>
 
-
- <li> <strong>Email:</strong>
-  <%= @paciente.email %></li>
+	   <li> <strong>Email:</strong>
+	    <%= @paciente.email %></li>
  
+	    <li><strong>Idade:</strong>
+	    <%= @paciente.idade %></li>
 
-  <li><strong>Idade:</strong>
-  <%= @paciente.idade %></li>
-
-
-  <li><strong>Sexo:</strong>
-  <%= @paciente.sexo %></li>
+	    <li><strong>Sexo:</strong>
+	    <%= @paciente.sexo %></li>
  
+	    <li><strong>Telf:</strong>
+	    <%= @paciente.telf %></li>
+ 
+	   <li> <strong>Telc:</strong>
+	    <%= @paciente.telc %></li>
 
-  <li><strong>Telf:</strong>
-  <%= @paciente.telf %></li>
-
+	    <li><strong>Convenio:</strong>
+	    <%= @paciente.convenio %></li>
+ 	   
+	    <li><strong>Ativo:</strong>
+			<%if @paciente.ativo? %>
+				Sim</li>
+			<% else %>
+				Não</li>
+			<%end%>
+	    <li><strong>Estadocivil:</strong>
+	    <%= @paciente.estadocivil %></li>
+	  </ul>
+	  <p>
+	  	<%= link_to '<span class="glyphicon glyphicon-floppy-disk"></span>  Novo Diagnóstico'.html_safe, new_paciente_diagnostico_path(@paciente), class: "btn btn-primary" %> |
+	  	<%= link_to '<span class="glyphicon glyphicon-floppy-disk"></span>  Novo Exame'.html_safe, new_paciente_exame_path(@paciente), class: "btn btn-primary" %> | 
+	  	<%= link_to '<span class="glyphicon glyphicon-floppy-disk"></span>  Nova Queixa'.html_safe, new_paciente_anamnese_path(@paciente), class: "btn btn-primary" %>
+	  </p>
+	  <p>
+	  	<%= link_to '<span class="glyphicon glyphicon-list"></span>  Diagnósticos deste Paciente'.html_safe, paciente_diagnosticos_path(@paciente), class: "btn btn-primary" %> | 
+	  	<%= link_to '<span class="glyphicon glyphicon-list"></span>  Exames deste Paciente'.html_safe, paciente_exames_path(@paciente), class: "btn btn-primary" %> | 
+	  	<%= link_to '<span class="glyphicon glyphicon-list"></span>  Queixas deste Paciente'.html_safe, paciente_anamneses_path(@paciente), class: "btn btn-primary" %>
+	  </p>
+  </div>
+</div>
   
- <li> <strong>Telc:</strong>
-  <%= @paciente.telc %></li>
   
 
-
-  <li><strong>Convenio:</strong>
-  <%= @paciente.convenio %></li>
- 
-
-
-  <li><strong>Ativo:</strong>
-  <%= @paciente.ativo %></li>
- 
-
-
-  <li><strong>Estadocivil:</strong>
-  <%= @paciente.estadocivil %></li>
-</ul>
  
 <p>
-<%= link_to 'Edit', edit_paciente_path(@paciente) %> |
-<%= link_to 'Back', pacientes_path %>
-</p>
-<p>
-<%= link_to 'Novo Diagnóstico', new_paciente_diagnostico_path(@paciente) %> |
-<%= link_to 'Novo Exame', new_paciente_exame_path(@paciente) %> |
-<%= link_to 'Nova Queixa', new_paciente_anamnese_path(@paciente) %> 
-</p>
-<p>
-<%= link_to 'Diagnósticos deste Paciente', paciente_diagnosticos_path(@paciente) %> |
-<%= link_to 'Exames deste Paciente', paciente_exames_path(@paciente) %> |
-<%= link_to 'Queixas deste Paciente', paciente_anamneses_path(@paciente) %> 
+	
+	<%= link_to '<span class="glyphicon glyphicon-circle-arrow-left"></span>  Voltar'.html_safe, pacientes_path, class: "btn btn-primary" %> | 
+	<%= link_to '<span class="glyphicon glyphicon-edit"></span>  Editar'.html_safe, edit_paciente_path(@paciente), class: "btn btn-primary" %>
 </p>

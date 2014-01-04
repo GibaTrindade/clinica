@@ -1,7 +1,8 @@
 class PacientesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
-
+  
+  
   # GET /pacientes
   # GET /pacientes.json
   def index
@@ -17,17 +18,25 @@ class PacientesController < ApplicationController
   # GET /pacientes/new
   def new
     @paciente = Paciente.new
+    @all_users = User.all.map {|user| [user.username, user.id]}
+    @estadocivil = %w(Casado(a) Solteiro(a) Divorciado(a) Viúvo(a) )
+    @sexo = %w(Masculino Feminino)
+    @action = "new"
   end
 
   # GET /pacientes/1/edit
   def edit
+    @all_users = User.all.map {|user| [user.username, user.id]}
+    @estadocivil = %w(Casado(a) Solteiro(a) Divorciado(a) Viúvo(a) )
+    @sexo = %w(Masculino Feminino)
+    @action = "edit"
   end
 
   # POST /pacientes
   # POST /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
-    @paciente.user_id = current_user.id
+    #@paciente.user_id = current_user.id
     respond_to do |format|
       if @paciente.save
         format.html { redirect_to @paciente, notice: 'Paciente criado com sucesso!' }

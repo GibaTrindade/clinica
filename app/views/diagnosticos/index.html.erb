@@ -1,5 +1,9 @@
 <h1>Diagnósticos de <%= @paciente.nome %></h1>
 <ul>
 <% @diagnosticos.each do |diagnostico| %>
+<% if diagnostico.estado? %>
 <li><%= link_to "Ver Diagnóstico - #{diagnostico.nome} - #{diagnostico.created_at}", diagnostico %> </li>
+<%else%>
+<li><%= link_to "Ver Diagnóstico - #{diagnostico.nome} - #{diagnostico.created_at}", diagnostico, class: "text-danger"  %> </li>
+<% end %>
 <% end %> </ul>
