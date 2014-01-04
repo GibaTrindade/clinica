@@ -30,7 +30,7 @@ class PacientesController < ApplicationController
     @paciente.user_id = current_user.id
     respond_to do |format|
       if @paciente.save
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully created.' }
+        format.html { redirect_to @paciente, notice: 'Paciente criado com sucesso!' }
         format.json { render action: 'show', status: :created, location: @paciente }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class PacientesController < ApplicationController
   def update
     respond_to do |format|
       if @paciente.update(paciente_params)
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully updated.' }
+        format.html { redirect_to @paciente, notice: 'Paciente atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

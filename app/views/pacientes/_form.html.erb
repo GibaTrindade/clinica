@@ -1,7 +1,7 @@
 <%= form_for(@paciente) do |f| %>
   <% if @paciente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@paciente.errors.count, "erro") %> não deixaram este paciente ser salvo:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h3><%= pluralize(@paciente.errors.count, "erro") %> </h3>
 
       <ul>
       <% @paciente.errors.full_messages.each do |msg| %>
@@ -10,48 +10,56 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="row">
+	<div class="col-md-4">
+		<div class="form-group">
     <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
+    <%= f.text_field :nome, class: "form-control" %>
+</div>
+<div class="form-group">
     <%= f.label :cpf %>
-    <%= f.text_field :cpf %>
-  </div>
-  <div class="field">
+    <%= f.text_field :cpf, class: "form-control" %>
+</div>
+<div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
+    <%= f.text_field :email, class: "form-control" %>
+</div>
+<div class="form-group">
     <%= f.label :idade %>
-    <%= f.number_field :idade %>
-  </div>
-  <div class="field">
+    <%= f.number_field :idade, class: "form-control" %>
+</div>
+<div class="form-group">  
     <%= f.label :sexo %>
-    <%= f.text_field :sexo %>
+    <%= f.text_field :sexo, class: "form-control" %>
+</div>
   </div>
-  <div class="field">
+
+<div class="col-md-4">
+	<div class="form-group">  
     <%= f.label :telf %>
-    <%= f.text_field :telf %>
-  </div>
-  <div class="field">
+    <%= f.text_field :telf, class: "form-control" %>
+</div>
+  
+  <div class="form-group">  
     <%= f.label :telc %>
-    <%= f.text_field :telc %>
-  </div>
-  <div class="field">
+    <%= f.text_field :telc, class: "form-control" %>
+</div>
+<div class="form-group">  
     <%= f.label :convenio %>
-    <%= f.text_field :convenio %>
-  </div>
-  <div class="field">
+    <%= f.text_field :convenio, class: "form-control" %>
+</div>
+<div class="form-group">  
     <%= f.label :ativo %>
-    <%= f.check_box :ativo, checked: "checked" %>
-  </div>
-  <div class="field">
+    <%= f.check_box :ativo, checked: "checked", class: "form-control"  %>
+</div>
+<div class="form-group">  
     <%= f.label :estadocivil %>
-    <%= f.text_field :estadocivil %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.text_field :estadocivil, class: "form-control" %>
+</div>
+ </div>
+
+</div>
+<div class="form-group"> 
+    <%= f.submit t('buttons.criar.paciente') , :class => 'btn btn-primary' %>
+</div>
 <% end %>

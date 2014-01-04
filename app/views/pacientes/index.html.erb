@@ -1,12 +1,19 @@
 <h1>Lista de pacientes</h1>
 <div id="pacientes">
 <%= form_tag pacientes_path, :method => 'get', :id => "pacientes_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Buscar", :nome => nil %>
-  </p>
+<div class="col-md-3">
+	<div class="input-group">
+	      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar paciente" %>
+	      <span class="input-group-btn">
+	         <%= submit_tag "Buscar", :nome => nil, class: "btn btn-primary" %>
+	      </span>
+	    </div><!-- /input-group -->
+</div>
 <% end %>
-
+</br>
+</br>
+</br>
+</br>
 <table class="table table-striped table-hover table-condensed">
   <thead>
     <tr>
@@ -30,7 +37,7 @@
         <td><%= paciente.telc %></td>
         <td><%= paciente.convenio %></td>
         <td><%= link_to 'Edit', edit_paciente_path(paciente) %></td>
-        <td><%= link_to 'Destroy', paciente, method: :delete, remote: true, id: "remove_paciente_#{paciente.id}", data: { confirm: 'Tem certeza?' } %></td>
+        <td><%= link_to '<span class="glyphicon glyphicon-remove-circle"></span> Deletar'.html_safe, paciente, method: :delete, remote: true, class: "btn btn-danger btn-xs", id: "remove_paciente_#{paciente.id}", data: { confirm: 'Tem certeza?' } %></td>
       </tr>
 	  <% content_for :js do%>
 	    $('#remove_paciente_<%= paciente.id %>').bind('ajax:success', function(){
@@ -43,4 +50,4 @@
 
 <br>
 
-<%= link_to 'New Paciente', new_paciente_path %>
+<%= link_to '<span class="glyphicon glyphicon-user"></span> Novo Paciente'.html_safe, new_paciente_path, class: "btn btn-primary" %>

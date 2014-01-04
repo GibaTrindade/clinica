@@ -1,0 +1,17 @@
+pt-BR:
+ pacientes:
+  new:
+   title: Cadastro de Pacientes
+   
+ links:
+  back: << Voltar
+
+ buttons:
+  novo:
+   paciente: Novo Paciente
+  criar:
+   paciente: Criar Paciente
+
+ activerecord:
+  models:
+   user: Usuário

@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "e-Prontuário", 'root_path', id: "logo" %>
+   
+      <%= link_to "e-Prontuário", 'root_path', id: "logo", class: "navbar-brand" %>
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home",    '#' %></li>
           <li><%= link_to "Help",    '#' %></li>
 		  <% if user_signed_in? %>
@@ -11,6 +11,6 @@
 		  <% end %>
         </ul>
       </nav>
-    </div>
+    
   </div>
 </header>
