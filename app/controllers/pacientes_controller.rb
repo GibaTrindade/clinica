@@ -1,8 +1,10 @@
 class PacientesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
-  
-  
+  before_action :set_estadocivil, only: [:new, :edit]
+  before_action :set_sexo, only: [:new, :edit]
+  before_action :set_allusers
+
   # GET /pacientes
   # GET /pacientes.json
   def index
@@ -18,17 +20,17 @@ class PacientesController < ApplicationController
   # GET /pacientes/new
   def new
     @paciente = Paciente.new
-    @all_users = User.all.map {|user| [user.username, user.id]}
-    @estadocivil = %w(Casado(a) Solteiro(a) Divorciado(a) Viúvo(a) )
-    @sexo = %w(Masculino Feminino)
+    #@all_users = User.all.map {|user| [user.username, user.id]}
+    #@estadocivil = %w(Casado(a) Solteiro(a) Divorciado(a) Viúvo(a) )
+    #@sexo = %w(Masculino Feminino)
     @action = "new"
   end
 
   # GET /pacientes/1/edit
   def edit
-    @all_users = User.all.map {|user| [user.username, user.id]}
-    @estadocivil = %w(Casado(a) Solteiro(a) Divorciado(a) Viúvo(a) )
-    @sexo = %w(Masculino Feminino)
+    #@all_users = User.all.map {|user| [user.username, user.id]}
+    #@estadocivil = %w(Casado(a) Solteiro(a) Divorciado(a) Viúvo(a) )
+    #@sexo = %w(Masculino Feminino)
     @action = "edit"
   end
 
@@ -74,6 +76,18 @@ class PacientesController < ApplicationController
   end
 
   private
+  
+  def set_allusers
+    @all_users = User.all.map {|user| [user.username, user.id]}
+  end
+  
+  def set_sexo
+    @sexo = %w(Masculino Feminino)
+  end
+  
+  def set_estadocivil
+    @estadocivil = %w(Casado(a) Solteiro(a) Divorciado(a) Viúvo(a) )
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_paciente
       @paciente = Paciente.find(params[:id])

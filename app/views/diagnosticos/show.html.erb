@@ -4,7 +4,8 @@
 <li>CID: <%= @diagnostico.cid %> </li> 
 <li>Estado: <%= @diagnostico.estado %> </li>
 </ul>
+<%= link_to '<span class="glyphicon glyphicon-circle-arrow-left"></span>  Voltar'.html_safe, paciente_path(@paciente), class: "btn btn-primary" %>
 <% if @diagnostico.user_id == current_user.id %>
-	<p><%= link_to 'Editar Diagnóstico', edit_diagnostico_path(@diagnostico) %></p>
+	<%= link_to '<span class="glyphicon glyphicon-edit"></span>  Editar Diagnóstico'.html_safe, edit_diagnostico_path(@diagnostico), class: "btn btn-primary" %>
 <% end %>
-<p><%= link_to 'Voltar', root_path %></p></p>
+

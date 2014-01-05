@@ -7,6 +7,7 @@ class DiagnosticosController < ApplicationController
   
   def show
       @diagnostico = Diagnostico.find(params[:id])
+      @paciente = Paciente.find(@diagnostico.paciente_id)
     end
   def new
     @paciente = Paciente.find(params[:paciente_id])
