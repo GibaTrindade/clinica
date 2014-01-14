@@ -54,7 +54,7 @@
     <%= f.label "Estado do paciente" %>
 	<% if @action == "new"%>
     	<%= f.check_box :ativo_desativado, checked: "checked", disabled: "disabled", class: "form-control"  %>
-		<%= f.hidden_field :ativo, value: true %>
+		<%= f.hidden_field :ativo, value: 1 %>
 	<% else %>
 		<%= f.check_box :ativo, class: "form-control"  %>
 	<%end%>

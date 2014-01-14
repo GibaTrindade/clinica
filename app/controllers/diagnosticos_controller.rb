@@ -3,15 +3,18 @@ class DiagnosticosController < ApplicationController
   def index
     @paciente = Paciente.find(params[:paciente_id])
     @diagnosticos = @paciente.diagnosticos
+    authorize! :manage, @diagnosticos
   end
   
   def show
       @diagnostico = Diagnostico.find(params[:id])
       @paciente = Paciente.find(@diagnostico.paciente_id)
+      authorize! :manage, @diagnostico
     end
   def new
     @paciente = Paciente.find(params[:paciente_id])
       @diagnostico = @paciente.diagnosticos.build #Diagnostico.new
+      authorize! :manage, @diagnostico
     end
   
   def create
@@ -19,6 +22,7 @@ class DiagnosticosController < ApplicationController
       #@diagnostico = @paciente.diagnosticos.build(diag_params)
       @diagnostico = @paciente.diagnosticos.create(diag_params)
       @diagnostico.user_id = current_user.id
+      authorize! :manage, @diagnostico
       if @diagnostico.save
         redirect_to @diagnostico,
                     notice: 'Cadastro criado com sucesso!'
@@ -39,6 +43,7 @@ class DiagnosticosController < ApplicationController
     
     #@diagnostico.update_attributes(diag_params)
     @diagnostico = Diagnostico.find(params[:id])
+    authorize! :manage, @diagnostico
     if @diagnostico.update(diag_params)
           redirect_to @diagnostico,
             notice: 'Cadastro atualizado com sucesso!'

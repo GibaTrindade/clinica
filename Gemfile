@@ -39,6 +39,12 @@ gem "bootstrap-sass"
 #DEVISE
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :ref => '49aebde'
 
+#cancan
+gem "cancan"
+
+#Rails_admin 
+gem "rails_admin"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

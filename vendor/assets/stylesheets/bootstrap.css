@@ -29,6 +29,10 @@ textarea {
   resize: none;
 }
 
+.altura-fixa{
+	height: 200px;
+}
+
 .center {
   text-align: center;
 }
@@ -116,7 +120,7 @@ footer ul li {
 
 /* FORM SING IN */
 .form-signin{
-	height: 265px;
+	/*height: 265px;*/
 	line-height: 20px;
 	margin-bottom: 0px;
 	margin-left: 405px;
@@ -975,6 +979,7 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  
 }
 
 .col-xs-1,

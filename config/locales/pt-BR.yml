@@ -1,11 +1,41 @@
 pt-BR:
+ admin:
+  actions:
+   index:
+    breadcrumb: "Usuários"
+    menu: Index
+    title: Admin
+   export:
+    menu: Exportar
+    link: Exportar
+   new:
+    title: "Novo Usuário"
+    menu: "Novo"
+    breadcrumb: "Novo"
+    link: "Adicionar novo Usuário"
+    done: "criado"
+   history_index:
+    menu: Histórico
+   dashboard:
+    title: Interface Administrativa
+    menu: Menu
+    breadcrumb: "Dashboard"
+  home:
+   name: Interface Administrativa
+  form:
+   optional: Campo obrigatório
+   char_length_up_to: Tamanho
  devise:
   sessions:
    user:
     signed_in: Seja Bem Vindo
   failure:
+   already_authenticated: Você já está logado!
    user:
     unauthenticated: Faça o login para acessar
+  registrations:
+   user:
+    updated: Cadastro atualizado com sucesso!
  
  pacientes:
   new:
@@ -25,3 +55,7 @@ pt-BR:
  activerecord:
   models:
    user: Usuário
+
+ unauthorized:
+  manage:
+   all: "Você não tem acesso a esta página."

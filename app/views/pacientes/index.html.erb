@@ -36,8 +36,13 @@
         <td><%= paciente.email %></td>
         <td><%= paciente.telc %></td>
         <td><%= paciente.convenio %></td>
+		
         <td><%= link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_paciente_path(paciente), class: "btn btn-primary btn-xs" %></td>
+		
+		<% if current_user.role == "administrador" %>
         <td><%= link_to '<span class="glyphicon glyphicon-remove-circle"></span> Deletar'.html_safe, paciente, method: :delete, remote: true, class: "btn btn-danger btn-xs", id: "remove_paciente_#{paciente.id}", data: { confirm: 'Tem certeza?' } %></td>
+		<%end%>
+		
       </tr>
 	  <% content_for :js do%>
 	    $('#remove_paciente_<%= paciente.id %>').bind('ajax:success', function(){
@@ -48,6 +53,6 @@
   </tbody>
 </table>
 
-<br>
+</br>
 
-<%= link_to '<span class="glyphicon glyphicon-user"></span> Novo Paciente'.html_safe, new_paciente_path, class: "btn btn-primary" %>
+<%= link_to '<span class="glyphicon glyphicon-user"></span> Novo Paciente'.html_safe, new_paciente_path, class: "btn btn-primary" %></br>
